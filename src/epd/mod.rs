@@ -2,7 +2,11 @@ use std::mem::transmute;
 
 use rppal::i2c::{self, I2c};
 
+pub mod inky;
+
+#[derive(Debug)]
 #[repr(u8)]
+#[allow(dead_code)]
 pub enum EPDColor {
     Black = 0x01,
     Red = 0x02,
@@ -10,15 +14,16 @@ pub enum EPDColor {
     SevenColour = 0x05,
 }
 
+#[derive(Debug)]
 #[repr(C)]
 pub struct EPDType {
-    width: u16,
-    height: u16,
-    color: EPDColor,
-    pcb_variant: u8,
-    display_variant: u8,
-    eeprom_write_time_length: u8,
-    eeprom_write_time: [u8; 21],
+    pub width: u16,
+    pub height: u16,
+    pub color: EPDColor,
+    pub pcb_variant: u8,
+    pub display_variant: u8,
+    pub eeprom_write_time_length: u8,
+    pub eeprom_write_time: [u8; 21],
 }
 
 const EEP_ADDRESS: u16 = 0x50;

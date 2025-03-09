@@ -5,3 +5,16 @@ edition = "2021"
 
 [dependencies]
 rppal = "0.22.1"
+log = "0.4"
+env_logger = { version = "0.11", default-features = false, features = [
+  "auto-color",
+  "humantime",
+] }
+ndarray = "0.16"
+imagequant = "4.3"
+image = "0.25"
+rgb = "0.8"
+bytemuck = { version = "1.21", features = ["extern_crate_alloc"] }
+derive_more = { version = "2.0", features = ["display", "from"] }
+clap = { version = "4.5", features = ["derive"] }
+rand = "0.9"
